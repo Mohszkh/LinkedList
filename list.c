@@ -11,12 +11,14 @@ struct node {
     struct node *next;
 };
 
-/*Creates and initializes a linked list with the data it was given*/
+/*Creates and initializes a linked list with the data it was given, returns a null pointer if the operation was unsuccessful.*/
 struct node *create_ll(DATA_TYPE data){
     struct node *p;
     p = malloc(sizeof(struct node));
-    p->data = data;
-    p->next = NULL;
+    if (p != NULL){
+        p->data = data;
+        p->next = NULL;
+    }
     return p;
 }
 /*  Given a pointer to the first node in a linked list and some data, It appends a node onto the linked list with the data it was provided with.
