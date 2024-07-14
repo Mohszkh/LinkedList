@@ -8,4 +8,5 @@ struct node *create_ll(DATA_TYPE data);
 bool append_node(struct node * first_node , DATA_TYPE data);
 bool destroy_ll(struct node * first_node);
 void print_ll(struct node * first_node);
+bool remove_last(struct node * first_node);
 #endif

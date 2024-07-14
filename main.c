@@ -15,6 +15,9 @@ int main(int argc, char const *argv[])
     }
     // Prints the linked list
     print_ll(MyLinkedList);
+    // Removes the last node from the linked list, and frees the memory allocated to it
+    remove_last(MyLinkedList);
+    print_ll(MyLinkedList);
     // Destroys the linked list and frees all the memory that was allocated to it, Thus making MyLinkedList a dangling pointer.
     // MyLinkedList shouldn't be used unless it is reassigned to a new memory location, undefined behaviour will ensue if it is used.
     destroy_ll(MyLinkedList);

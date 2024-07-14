@@ -74,7 +74,7 @@ void print_ll(struct node * first_node){
     while (true){
         if((current_node->next) == NULL){
             // The end of the list has been reached
-            printf(FORMAT_SPECIFIER " ]", (current_node->data));
+            printf(FORMAT_SPECIFIER " ]\n", (current_node->data));
             return;
         } else if (current_node == first_node){
             printf("[ " FORMAT_SPECIFIER " , ", (current_node->data));
@@ -82,6 +82,31 @@ void print_ll(struct node * first_node){
         } else{
             printf(FORMAT_SPECIFIER " , ", (current_node->data));
             current_node = (current_node->next);
+        }
+    }
+}
+
+/*  Takes in the first node in a linked list as a parameter. (It can accept a pointer to any node in the linked list, However, if the final node is given to it, It will return false without deleting it), 
+    For the fastest runtime, remove_last should recieve the node before the last node in the linked list, 
+    Removes the last node that was appended by the linked list. 
+    Returns false if there is only 1 node and returns without removing the node (reason: atleast 1 node must be present for the linked list to work), 
+    Returns true if the operation was successful. 
+*/
+bool remove_last(struct node * first_node){
+    if ((first_node->next) == NULL) {
+        return false;
+    }
+    struct node *current_node, *previous_node;
+    previous_node = first_node;
+    current_node = (first_node->next);
+    while (true){
+        if ((current_node->next == NULL)){
+            previous_node->next = NULL;
+            free(current_node);
+            return true;
+        } else{
+            previous_node = current_node;
+            current_node = current_node->next;
         }
     }
 }
